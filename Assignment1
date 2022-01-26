@@ -1,0 +1,126 @@
+#coded by AbiEx
+
+#precoded lists
+u = ["useradmin","nethaji"]
+p = ["passwordadmin","nirmal"]
+n = ["AbiEx", "Mr. Nethaji"]
+
+#empty dictionary
+dob = {}
+
+#this function is to be used if the user has input the wrong password after registration and wishes to try again.
+def npass():
+  npass = input("Y or N? : ")
+  if npass == "Y":
+    ndobreg()
+  elif npass == "N":
+    print("Thank you for your time then... Hope you have a good day!")
+  else:
+    print("Please answer with Y or N only, case sensitive, only capital letters please.")
+    npass()
+
+#this function is to be used if the user wants to register an account.
+def ndobreg():
+  expass = input("Please enter your newly registered password: ")
+  if expass == p[2]:
+    n.append(input("You have successfully logged in, please enter your name: "))
+    dob[n[2]] = input("Please enter you date of birth in DD/MM/YYYY format:")
+    print("Here is all your information stored in this program:", "Username: ",u[2], ", Password",p[2], ", Name: ",n[2])
+  else:
+    print("The password entered is incorrect, would you like to try again?")
+    npass()
+
+#this function is to login right after registration.
+def nuser():
+  newuser = input("Please enter your newly registered username:")
+  if newuser == u[2]:
+    ndobreg()
+  else:
+    print("The username entered is incorrect, would you like to try again?")
+    nuserlogfail = input("Y or N? : ")
+    if nuserlogfail == "Y":
+      nuser()
+    else:
+      print("Thank you for your time then... Hope you have a good day!")
+
+#this function is to be asked if the person says N to whether they have an account or not.
+def nreg():
+  newreg = input("Would you like to register a new account Y or N ? : ")
+  if newreg == "Y":
+    print("Please enter your new username:"), u.append(input())
+    print("Please enter your new password:"), p.append(input())
+    print("You have registered successfully. Please login.")
+    nuser()
+  elif newreg == "N":
+    print("Thank you for your time then... Hope you have a good day!")
+  else:
+    print("Please answer with Y or N, case sensitive, only capital letters please.")
+    nreg()
+
+def fq():
+  print("Would you like to read my apology letter to you before reading your data stored in this program?)
+  finalquestion = input("Y or N ? : ")
+  if finalquestion == "Y":
+    print("Good day to sir, I am terribly sorry that this assignment took a little longer than the deadline, I was taking care of things in the house, I live alone with my mother and it was slightly difficult to attend the classes so I watched the recordings around two days before the date of submission of this assignment - 26/01/2022. I'm terribly sorry, but thank you so much for choosing to read my apology letter, you could have typed N but you didnt! So thank you for your time and I hope you have a great day!!!")
+    print("Here is your data stored in this program - Username: ",u[1], ", Password: ",p[1], ", Name: ",n[1])
+  elif finalquestion == "N":
+    print("Here is your data stored in this program - Username: ",u[1], ", Password: ",p[1], ", Name: ",n[1])
+  else:
+    print("Please answer with Y or N only, case sensitive, use only capital letters.")
+    fq()
+
+#this function is if the user has an existing account.
+def exlog():
+  exuser = input("Please enter your existing username: ")
+  if exuser == u[0]:
+    expass = input("Please enter your existing password: ")
+    if expass == p[0]:
+      print("You have successfully logged in, please enter your date of birth in DD/MM/YYYY format:")
+      dob["Admin"] = input()
+      print("Good day to you Lord AbiEx. Whilst you contemplate your grand schemes to destroy the world. Here is all the data stored within the program: "
+      , "Usernames: ",u, ", Passwords: ",p, ", List of Dates of Birth",dob)
+    else:
+      print("Password entered is incorrect, would you like to try again?")
+      admlogpassfail = input("Y or N? : ")
+      if admlogpassfail == "Y":
+        exlog()
+  elif exuser == u[1]:
+    print ("Good day sir, please enter your password:")
+    y = input()
+    if y == p[1]:
+      print("You have successfully logged in, ",n[1], ", please enter your date of birth in DD/MM/YYYY format:")
+      dob["Mr. Nethaji Nirmal"] = input()
+      fq()
+
+    else:
+      print("Password entered is incorrect sir, would you like to try again?")
+      logpassfail = input("Y or N? : ")
+      if logpassfail == "Y":
+        exlog()
+      else:
+        print("Thank you for your time sir, hope you liked this program!")
+  else:
+    print("Username entered is invalid. Would you like to try again?")
+    loguserfail = input("Y or N? :")
+    if loguserfail == "Y":
+      exlog()
+    else:
+      nreg()
+
+#this function leads to all other functions, it is to check the accounts.
+def aqcheck():
+  a3check = input("Please answer with Y or N: ")
+  if a3check == "Y":
+    exlog()
+  elif a3check == "N":
+    nreg()
+  else:
+    print("Please answer with Y or N only, case sensitive, only capital letters please.")
+    aqcheck()
+
+
+#Yes. The execution begins.... With one line...
+#Hahahaha... AHAHAHHAHAHAHAHAHHAHHAAHHA! AHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHAHAHHA!!!!
+
+print("Do you have an existing account?")
+aqcheck()
