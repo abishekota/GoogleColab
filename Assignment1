@@ -58,7 +58,7 @@ def nreg():
     nreg()
 
 def fq():
-  print("Would you like to read my apology letter to you before reading your data stored in this program?)
+  print("Would you like to read my apology letter to you before reading your data stored in this program?")
   finalquestion = input("Y or N ? : ")
   if finalquestion == "Y":
     print("Good day to sir, I am terribly sorry that this assignment took a little longer than the deadline, I was taking care of things in the house, I live alone with my mother and it was slightly difficult to attend the classes so I watched the recordings around two days before the date of submission of this assignment - 26/01/2022. I'm terribly sorry, but thank you so much for choosing to read my apology letter, you could have typed N but you didnt! So thank you for your time and I hope you have a great day!!!")
